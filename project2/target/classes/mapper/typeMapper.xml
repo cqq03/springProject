@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="idealtype">
+	<insert id="insert" parameterType="typeVO"><!-- insertsql문 테이블에 vo넣기  -->
+		insert into IDEALTYPE values (#{tid}, #{drinking}, #{smoking}, #{religion}, #{height}, #{place}, #{contact}, #{wage})
+	</insert>
+	<update id="update" parameterType="typeVO"> ><!-- update sql문! 아이디를 전송해 해당 회원의 데이터 찾아와  vo넣기  -->
+		update IDEALTYPE set drinking = #{drinking}, smoking = #{smoking}, religion = #{religion}, height = #{height}, place = #{place}, contact = #{contact}, wage = #{wage} where tid = #{tid}
+	</update>
+	<select id="select" parameterType="typeVO" resultType="typeVO"><!-- select sql문!  vo에서 id 갖고와서전송해 해당 회원의 데이터 찾아와  다른 vo에 넣기  -->
+		select * from IDEALTYPE where tid = #{tid}
+	</select>
+	<select id="select2" parameterType="String" resultType="typeVO"><!-- selct sql문! 아이디  전송해 해당 회원의 데이터 찾아와   vo에 넣기  -->
+		select * from IDEALTYPE where tid = #{tid}
+	</select>
+	
+</mapper>
